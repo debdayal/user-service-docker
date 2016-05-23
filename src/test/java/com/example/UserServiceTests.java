@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
-public class HeroServiceApplicationTests {
+public class UserServiceTests {
 
 	@Test
 	public void contextLoads() {
