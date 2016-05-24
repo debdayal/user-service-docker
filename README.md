@@ -1,4 +1,11 @@
 
+Get the Github project in your workspace
+> git clone https://github.com/debdayal/user-service-docker.git
+
+If you want to build your own docker image and upload to your docker hub account, then do the following
+
+> cd user-service-docker
+
 Build and Run the project using STS.
 Need a MongoDB running locally **spring.data.mongodb.uri=mongodb://localhost/local**
 I am not using the docker maven plugin but manual build and push to docker hub.
