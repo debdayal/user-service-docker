@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
 	@Id 
-	private String id;
+	private String id;	
 	private String name;
 	private int age;
 	
@@ -20,4 +20,11 @@ public class User {
 	public int getAge() {
 		return age;
 	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+		
 }
