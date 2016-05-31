@@ -26,11 +26,12 @@ Then from this machine or another machine you can pull the docker image and run.
 > docker pull debdayal/user-service
 
 Now dynamically pass the MongoDB database URL using Spring Boots **spring.data.mongodb.uri property**. You can run multiple instances of user-service.
-> docker run -e SCRING_DATA_MONGODB_URI=mongodb://server/database -p 8001:8080 --name user-service-1 -d -t debdayal/user-service
 
-> docker run -e SCRING_DATA_MONGODB_URI=mongodb://server/database -p 8002:8080 --name user-service-2 -d -t debdayal/user-service
+> docker run -p 8001:8080 --name user-service-1 -d -t debdayal/user-service --spring.data.mongodb.uri=mongodb://192.168.33.12/local --debug
+
+> docker run -p 8002:8080 --name user-service-2 -d -t debdayal/user-service --spring.data.mongodb.uri=mongodb://192.168.33.12/local --debug
 
 While running multiple instances of user-service the consumer needs a single endpoint to connect to it. One of the way it can be achieved is using a HAProxy.
 A tutorial on HA Proxy configuraiton can be found @ _https://www.howtoforge.com/tutorial/ubuntu-load-balancer-haproxy_
-I have also provided the /etc/haproxy/haproxy.cfg file assuming you have ** port forwarding on 8000 ** and your Vagrant VM's private ip: **192.168.33.11** in the host network.
+I have also provided the /etc/haproxy/haproxy.cfg file assuming you have ** port forwarding on 8010 ** and your Vagrant VM's private ip: **192.168.33.12** in the host network.
 Once you do all this from Windows machine you can run **http://localhost:8000/users** or you can use Vagrant Share.
