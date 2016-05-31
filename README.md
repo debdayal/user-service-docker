@@ -12,6 +12,7 @@ I am not using the docker maven plugin but manual build and push to docker hub.
 Package the application and **copy the jar file to docker folder**
 From Vagrant Ubuntu VM run the below commands
 > cd docker
+
 > docker build --force-rm -t debdayal/user-service .
 
 Replace _debdayal_ with **your name**
