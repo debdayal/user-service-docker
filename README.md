@@ -9,8 +9,9 @@ If you want to build your own docker image and upload to your docker hub account
 Build and Run the project using STS.
 Need a MongoDB running locally **spring.data.mongodb.uri=mongodb://localhost/local**
 I am not using the docker maven plugin but manual build and push to docker hub.
-Package the application and copy the jar file to docker folder
+Package the application and **copy the jar file to docker folder**
 From Vagrant Ubuntu VM run the below commands
+> cd docker
 > docker build --force-rm -t debdayal/user-service .
 
 Replace _debdayal_ with **your name**
@@ -24,9 +25,9 @@ Then from this machine or another machine you can pull the docker image and run.
 > docker pull debdayal/user-service
 
 Now dynamically pass the MongoDB database URL using Spring Boots **spring.data.mongodb.uri property**. You can run multiple instances of user-service.
-> docker run -e SCRING_DATA_MONGODB_URI=mongodb://server/database -p 8001:8080 --name user-service-1 -t debdayal/user-service -d
+> docker run -e SCRING_DATA_MONGODB_URI=mongodb://server/database -p 8001:8080 --name user-service-1 -d -t debdayal/user-service
 
-> docker run -e SCRING_DATA_MONGODB_URI=mongodb://server/database -p 8002:8080 --name user-service-2 -t debdayal/user-service -d
+> docker run -e SCRING_DATA_MONGODB_URI=mongodb://server/database -p 8002:8080 --name user-service-2 -d -t debdayal/user-service
 
 While running multiple instances of user-service the consumer needs a single endpoint to connect to it. One of the way it can be achieved is using a HAProxy.
 A tutorial on HA Proxy configuraiton can be found @ _https://www.howtoforge.com/tutorial/ubuntu-load-balancer-haproxy_
